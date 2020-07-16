@@ -1,0 +1,1 @@
+require '../mairie_christmas.rb'

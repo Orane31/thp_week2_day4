@@ -1,20 +1,21 @@
 require_relative '../lib/dark_trader.rb'
 
-describe "Go open the webpage" do
-   it "should open the web page from its url" do
-    expect(acquire_page("https://coinmarketcap.com/all/views/all/")).to eq("The page is ready to be scrapped")
-    expect(acquire_page("https://www.amazon.fr/Bluestork-BS-KB-MICRO-BT-SP-Bluetooth/dp/B00ARHXMEW/ref=sr_1_7?dchild=1&keywords=clavier+qwerty&qid=1594840405&refinements=p_n_feature_eight_browse-bin%3A14337020031&rnid=1703605031&s=computers&sr=1-7")).to eq("The page is ready to be scrapped")
-    
-    end 
 
+describe "The html code of the web page" do
+    it "should return the html code of web page" do
+      expect(access_page).not_to be_nil
+    end
 end
+  
 
-describe "gets the name and the value of the array" do 
-    it "should "
-
+describe "Test on the final hash." do
+    it "should return a hash containing symbols and prices of crypto-currencies." do
+      expect(perform.any?{"BTC" "FX" "NAS"}).to be true
+    end
+    it "should return an integer larger than 50" do
+      expect(final_hash.size).to be>50
+    end
 end
-
-
 
 
 
