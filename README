@@ -1,3 +1,6 @@
+
+ATTENTION ! J'utilise la version 2.7.0 de ruby, donc télécharges la gem qui correspond dans mon Gemfile avec bundle install
+
 projet thp jour 4 de la semaine 2,
 Le scrappeur fouLehman Brothers, impressionnés par ton algorithme d'optimisation d'achat / vente, veut encore faire appel à toi. Leur Chief Digital Officer, très hype, a entendu parler au JT de TF1 d'un "truc révolutionnaire qui s'appelle le bloque-chienne". Il veut en acheter plein. Pour le conseiller, tu vas devoir récupérer le cours de toutes les cryptomonnaies du marché.
 

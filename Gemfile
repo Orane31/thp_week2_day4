@@ -1,3 +1,6 @@
-gem 'nokogiri'
 source 'https://rubygems.org'
+ruby '2.7.0'
 gem 'uri' 
+gem 'nokogiri'
+gem 'pry'
+gem 'rubocop'
