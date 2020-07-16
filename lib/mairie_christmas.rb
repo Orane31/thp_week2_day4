@@ -57,9 +57,9 @@ def perform
     together = Hash.new
     get_townhall_names.zip(mails_list){|k,v|together[k] = v}
     final_list = together.each_slice(1).map(&:to_h)
-    p final_list
+    return final_list
     
 end
 
-perform
+p perform
 
