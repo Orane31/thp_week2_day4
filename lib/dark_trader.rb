@@ -6,51 +6,38 @@ require 'rspec'
 require 'rubocop'
 require 'open-uri'
 
-page = Nokogiri::HTML(URI.open("https://coinmarketcap.com/all/views/all/"))
-
-
-def acquire_page(page)
-    classpage = page.class 
-    if classpage = Nokogiri::HTML::Document 
-        return "The page is ready to be scrapped"
-    else
-        return "Problem occurred"
-    end
+def access_page
+    page = Nokogiri::HTML(URI.open("https://coinmarketcap.com/all/views/all/"))
+    return page
 end
+      
 
-puts acquire_page(page)
-
-def get_names(page)
+def final_hash
+    page = access_page
     all_names = page.xpath('/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div[2]/div[3]/div/table/tbody/tr/td[3]/div')
     #puts all_names
+    all_prices = page.xpath('/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div[2]/div[3]/div/table/tbody/tr/td[5]/a')
+    #puts all prices
 
     names_list = Array.new
         all_names.each do |name|
         names_list << name.text
         end
-    return names_list
-end
-
-names = get_names(page)
-
-def get_prices(page)
-    all_prices = page.xpath('/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div[2]/div[3]/div/table/tbody/tr/td[5]/a')
-    #puts all prices
 
     prices_list = Array.new
         all_prices.each do |price|
         prices_list << price.text
-    end
-    return prices_list
-end
+        end
 
-prices = get_prices(page)
-
-def final_hash(names, prices)
     final_list = Hash.new 
-    names.zip(prices){|k,v|final_list[k] = v}
-    hola = final_list.each_slice(1).map(&:to_h)
-
+    names_list.zip(prices_list){|k,v|final_list[k] = v}
+    hello = final_list.each_slice(1).map(&:to_h)
+    return hello 
 end
 
-puts final_hash(names, prices)
+def perform 
+    access_page
+    final_hash
+end
+
+p perform
